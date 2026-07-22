@@ -19,24 +19,26 @@
             background-attachment: fixed;
             display: flex;
             justify-content: center;
-            padding: 20px 10px;
+            padding: 30px 15px; /* Más espacio alrededor de la tarjeta */
         }
 
+        /* TARJETA PRINCIPAL (EFECTO CRISTAL TRANSLÚCIDO) */
         .mobile-card {
             width: 100%;
             max-width: 420px;
-            background-color: rgba(250, 246, 240, 0.94);
-            backdrop-filter: blur(5px);
+            background-color: rgba(250, 246, 240, 0.75); /* Transparencia aumentada (de 0.94 a 0.75) para ver los conejitos */
+            backdrop-filter: blur(8px); /* Blur para dar un toque elegante y que se entrevea el fondo */
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 28px;
-            border: 2px solid #E6D7C3;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+            border: 2px solid rgba(230, 215, 195, 0.9);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             overflow: hidden;
             position: relative;
         }
 
         .section {
             padding: 28px 20px;
-            border-bottom: 1px dashed #E6D7C3;
+            border-bottom: 1px dashed rgba(230, 215, 195, 0.8);
             text-align: center !important;
         }
         .section:last-child { border-bottom: none; }
@@ -56,11 +58,11 @@
 
         h1 { font-family: 'Fredoka', cursive; font-size: 30px; color: #4A3525; margin-bottom: 6px; text-align: center !important; }
         h2 { font-family: 'Fredoka', cursive; font-size: 22px; color: #4A3525; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center !important; }
-        p { font-size: 14px; line-height: 1.5; color: #5C4838; text-align: center !important; }
+        p { font-size: 14px; line-height: 1.5; color: #4A3525; text-align: center !important; }
 
         .img-container {
             width: 100%;
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.9);
             padding: 8px;
             border-radius: 18px;
             border: 1px solid #E6D7C3;
@@ -76,27 +78,27 @@
         }
 
         .baby-text-box {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.88); /* Fondo ligeramente denso para facilitar la lectura del texto */
             border-radius: 16px;
             padding: 16px;
             text-align: center !important;
             border: 1px solid #E6D5C3;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
         .baby-text-box p {
             text-align: center !important;
         }
 
         .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-        .detail-card { background: #FFFFFF; border-radius: 14px; padding: 12px 8px; border: 1px solid #EFE6DC; text-align: center !important; }
-        .detail-card.full { grid-column: span 2; background: #FFFDF9; border: 2px dashed #D4A373; text-align: center !important; }
+        .detail-card { background: rgba(255, 255, 255, 0.9); border-radius: 14px; padding: 12px 8px; border: 1px solid #EFE6DC; text-align: center !important; }
+        .detail-card.full { grid-column: span 2; background: rgba(255, 253, 249, 0.95); border: 2px dashed #D4A373; text-align: center !important; }
 
-        .gift-box { background: #FFFFFF; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid #D4A373; text-align: center !important; font-size: 13px; }
+        .gift-box { background: rgba(255, 255, 255, 0.9); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid #D4A373; text-align: center !important; font-size: 13px; }
         .gift-box.girl { border-color: #E29578; }
         .gift-box.boy { border-color: #83C5BE; }
 
         /* VOTACIÓN DINÁMICA */
-        .vote-box { background: #FFFFFF; border-radius: 18px; padding: 18px; border: 1px solid #E6D7C3; text-align: left; }
+        .vote-box { background: rgba(255, 255, 255, 0.92); border-radius: 18px; padding: 18px; border: 1px solid #E6D7C3; text-align: left; }
         .bars-container { margin: 15px 0 20px 0; }
         .bar-group { margin-bottom: 12px; }
         .bar-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: #4A3525; }
@@ -153,9 +155,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .rsvp-card { background: #FFFFFF; border-radius: 18px; padding: 18px; border: 2px dashed #8C6D53; text-align: center !important; }
+        .rsvp-card { background: rgba(255, 255, 255, 0.92); border-radius: 18px; padding: 18px; border: 2px dashed #8C6D53; text-align: center !important; }
 
-        /* BOTÓN DE MÚSICA FLOTANTE SIEMPRE VISIBLE */
+        /* BOTÓN DE MÚSICA FLOTANTE */
         #music-control-button {
             position: fixed !important;
             bottom: 25px !important;
