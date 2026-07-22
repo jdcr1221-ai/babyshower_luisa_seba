@@ -31,6 +31,7 @@
             border: 2px solid #E6D7C3;
             box-shadow: 0 15px 35px rgba(0,0,0,0.18);
             overflow: hidden;
+            position: relative;
         }
 
         .section {
@@ -53,7 +54,7 @@
         }
         h1 { font-family: 'Fredoka', cursive; font-size: 30px; color: #4A3525; margin-bottom: 6px; }
         h2 { font-family: 'Fredoka', cursive; font-size: 22px; color: #4A3525; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        p { font-size: 14px; line-height: 1.5; color: #5C4838; }
+        p { font-size: 14px; line-height: 1.5; color: #5C4838; text-align: center; }
 
         .img-container {
             width: 100%;
@@ -76,7 +77,7 @@
             background: #FFFFFF;
             border-radius: 16px;
             padding: 16px;
-            text-align: left;
+            text-align: center;
             border: 1px solid #E6D5C3;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
@@ -85,7 +86,7 @@
         .detail-card { background: #FFFFFF; border-radius: 14px; padding: 12px 8px; border: 1px solid #EFE6DC; }
         .detail-card.full { grid-column: span 2; background: #FFFDF9; border: 2px dashed #D4A373; }
 
-        .gift-box { background: #FFFFFF; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid #D4A373; text-align: left; font-size: 13px; }
+        .gift-box { background: #FFFFFF; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid #D4A373; text-align: center; font-size: 13px; }
         .gift-box.girl { border-color: #E29578; }
         .gift-box.boy { border-color: #83C5BE; }
 
@@ -148,16 +149,51 @@
         }
 
         .rsvp-card { background: #FFFFFF; border-radius: 18px; padding: 18px; border: 2px dashed #8C6D53; text-align: center; }
+
+        /* ESTILOS DEL BOTÓN DE MÚSICA FLOTANTE */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8C6D53;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+            border-radius: 50px;
+            padding: 12px 18px;
+            font-family: 'Fredoka', cursive;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .music-btn:hover {
+            transform: scale(1.05);
+            background-color: #6d543e;
+        }
     </style>
 </head>
 <body>
+
+<!-- BOTÓN Y ELEMENTO DE AUDIO APUNTANDO A TARZAN.MP3 -->
+<button class="music-btn" onclick="toggleMusic()">
+    <i id="musicIcon" class="fa-solid fa-music"></i>
+    <span id="musicText">Música</span>
+</button>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="tarzan.mp3" type="audio/mpeg">
+</audio>
 
 <div class="mobile-card">
 
     <!-- PORTADA -->
     <section class="section">
         <span class="badge"><i class="fa-solid fa-heart"></i> ¡Estás Invitado!</span>
-        <h1>¡Hola mundo! Mi Baby Shower 🐰✨</h1>
+        <h1>✨ ¡Hola mundo! Mi Baby Shower ✨</h1>
         <p>Una linda aventura está por comenzar y quiero celebrarla contigo desde antes de nacer.</p>
         <p style="margin-top: 8px;"><strong>Mis Papás: Luisa & Sebastián</strong></p>
     </section>
@@ -196,8 +232,9 @@
                 <p>17:30 PM</p>
             </div>
             <div class="detail-card full">
-                <strong style="color:#D4A373;">💥 ¡GRAN SORPRESA AÉREA!</strong>
-                <p>19:00 PM Exactas con nuestro humo aéreo ✨ ¡Llega muy puntual!</p>
+                <strong style="color:#D4A373;">💥 ¡GRAN REVELACIÓN!</strong>
+                <p>19:00 PM Exactas con nuestro humo aéreo ✨ <br>
+                    ¡Llega muy puntual!</p>
             </div>
             <div class="detail-card full">
                 <strong>📍 Ubicación</strong>
@@ -297,8 +334,26 @@
 
 </div>
 
-<!-- SCRIPT LÓGICO DE INTERACCIÓN -->
+<!-- SCRIPT LÓGICO DE MÚSICA Y INTERACCIÓN -->
 <script>
+    // LÓGICA DE REPRODUCCIÓN DE MÚSICA
+    function toggleMusic() {
+        let music = document.getElementById('bgMusic');
+        let icon = document.getElementById('musicIcon');
+        let text = document.getElementById('musicText');
+
+        if (music.paused) {
+            music.play();
+            icon.className = "fa-solid fa-pause";
+            text.innerText = "Pausar";
+        } else {
+            music.pause();
+            icon.className = "fa-solid fa-music";
+            text.innerText = "Música";
+        }
+    }
+
+    // LÓGICA DE VOTACIÓN
     let votes = {
         girl: 0,
         boy: 0,
@@ -338,11 +393,9 @@
             return;
         }
 
-        // Incrementar recuento
         votes[choice]++;
         updateBars();
 
-        // Generar tarjeta en la cuadrícula de 2 columnas
         let grid = document.getElementById('votesGrid');
         let card = document.createElement('div');
         card.className = 'vote-card';
@@ -363,15 +416,12 @@
 
         card.innerHTML = `<strong>${name}</strong><span class="${badgeClass}">${choiceText}</span>`;
         
-        // Agregar al inicio del contenedor
         grid.insertBefore(card, grid.firstChild);
 
-        // Limpiar campos
         nameInput.value = '';
-        choiceChoiceSelect = choiceInput.selectedIndex = 0;
+        choiceInput.selectedIndex = 0;
     }
 
-    // Inicializar barras en 0%
     updateBars();
 </script>
 
