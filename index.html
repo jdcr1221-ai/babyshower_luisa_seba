@@ -26,8 +26,8 @@
         .mobile-card {
             width: 100%;
             max-width: 420px;
-            background-color: rgba(250, 246, 240, 0.35); /* Transparencia muy alta para ver los conejitos */
-            backdrop-filter: blur(3px); /* Desenfoque mínimo para ver el dibujo claro */
+            background-color: rgba(250, 246, 240, 0.35);
+            backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
             border-radius: 28px;
             border: 2px solid rgba(255, 255, 255, 0.6);
@@ -46,18 +46,18 @@
         .badge {
             background: rgba(230, 215, 195, 0.9);
             color: #5C4033;
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             display: inline-block;
             margin-bottom: 10px;
             text-align: center !important;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        h1 { font-family: 'Fredoka', cursive; font-size: 30px; color: #4A3525; margin-bottom: 6px; text-align: center !important; text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
+        h1 { font-family: 'Fredoka', cursive; font-size: 28px; color: #4A3525; margin-bottom: 6px; text-align: center !important; text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
         h2 { font-family: 'Fredoka', cursive; font-size: 22px; color: #4A3525; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center !important; text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
         p { font-size: 14px; line-height: 1.5; color: #3D2B1F; text-align: center !important; }
 
@@ -93,6 +93,28 @@
         .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
         .detail-card { background: rgba(255, 255, 255, 0.92); border-radius: 14px; padding: 12px 8px; border: 1px solid #EFE6DC; text-align: center !important; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
         .detail-card.full { grid-column: span 2; background: rgba(255, 253, 249, 0.95); border: 2px dashed #D4A373; text-align: center !important; }
+
+        /* ESTILO INTERACTIVO PARA LA UBICACIÓN */
+        .location-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .location-card:active {
+            transform: scale(0.98);
+        }
+        .location-btn-text {
+            margin-top: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #8C6D53;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
 
         .gift-box { background: rgba(255, 255, 255, 0.92); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; border-left: 4px solid #D4A373; text-align: center !important; font-size: 13px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
         .gift-box.girl { border-color: #E29578; }
@@ -156,7 +178,33 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* CONFIRMACIÓN Y BOTONES DE WHATSAPP */
         .rsvp-card { background: rgba(255, 255, 255, 0.94); border-radius: 18px; padding: 18px; border: 2px dashed #8C6D53; text-align: center !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        
+        .whatsapp-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .ws-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .ws-btn:active { transform: scale(0.98); }
+        .ws-btn.mother { background-color: #25D366; }
+        .ws-btn.father { background-color: #128C7E; }
 
         /* BOTÓN DE MÚSICA FLOTANTE */
         #music-control-button {
@@ -196,8 +244,8 @@
 
     <!-- PORTADA -->
     <section class="section">
-        <span class="badge"><i class="fa-solid fa-heart"></i> ¡Estás Invitado!</span>
-        <h1>✨ ¡Hola mundo! Mi Baby Shower ✨</h1>
+        <span class="badge"><i class="fa-solid fa-envelope"></i> ¡Tienes una invitación muy especial!</span>
+        <h1>✨ ¡A mi revelación de género! ✨</h1>
         <p>Una linda aventura está por comenzar y quiero celebrarla contigo desde antes de nacer.</p>
         <p style="margin-top: 8px;"><strong>Mis Papás: Luisa & Sebastián</strong></p>
     </section>
@@ -240,10 +288,16 @@
                 <p>19:00 PM Exactas con nuestro humo aéreo ✨ <br>
                     ¡Llega muy puntual!</p>
             </div>
-            <div class="detail-card full">
+
+            <!-- UBICACIÓN CLICABLE A GOOGLE MAPS -->
+            <a href="https://maps.google.com/?q=Calle+Oviedo+533,+El+Casar+de+Escalona" target="_blank" class="detail-card full location-card">
                 <strong>📍 Ubicación</strong>
                 <p>Calle Oviedo 533, El Casar de Escalona</p>
-            </div>
+                <div class="location-btn-text">
+                    <i class="fa-solid fa-map-location-dot"></i> Abrir en Google Maps
+                </div>
+            </a>
+
             <div class="detail-card full">
                 <strong>🤍 Código de Vestimenta</strong>
                 <p>Full Blanco</p>
@@ -331,8 +385,19 @@
     <!-- CONFIRMACIÓN -->
     <section class="section">
         <div class="rsvp-card">
-            <h3 style="font-family:'Fredoka'; font-size:18px; margin-bottom:8px; color:#4A3525; text-align:center;">🐾 Un aviso de mi parte</h3>
-            <p style="font-size:13px; color:#5C4838;">Para que mis papás puedan preparar todos los recuerditos, las cositas ricas y los lugares con mucho amor, por favor confirma tu asistencia con <strong>previo aviso</strong> avisándole directamente a mi mami <strong>Luisa</strong> o a mi papi <strong>Sebastián</strong>. ¡Contamos contigo!</p>
+            <h3 style="font-family:'Fredoka'; font-size:18px; margin-bottom:10px; color:#4A3525; text-align:center;">☑️ Un aviso de mi parte</h3>
+            <p style="font-size:13px; color:#5C4838; line-height: 1.6;">
+                Cada detalle de este día ha sido pensado con muchísimo amor para recibirlos y compartir juntos una celebración muy especial. Por eso, les pido un pequeño favor: confirmen su asistencia con tiempo para que mis papás puedan preparar todo con mucho cariño y que nada falte en este hermoso encuentro.
+            </p>
+
+            <div class="whatsapp-buttons">
+                <a href="https://wa.me/34600735254?text=%C2%A1Hola%20Luisa!%20Quiero%20confirmar%20mi%20asistencia%20para%20la%20revelaci%C3%B3n%20de%20g%C3%A9nero.%20%E2%9C%A8" target="_blank" class="ws-btn mother">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Confirmar con Luisa
+                </a>
+                <a href="https://wa.me/34654955837?text=%C2%A1Hola%20Sebasti%C3%A1n!%20Quiero%20confirmar%20mi%20asistencia%20para%20la%20revelaci%C3%B3n%20de%20g%C3%A9nero.%20%E2%9C%A8" target="_blank" class="ws-btn father">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Confirmar con Sebastián
+                </a>
+            </div>
         </div>
     </section>
 
