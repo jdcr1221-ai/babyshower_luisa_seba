@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> GRAN REVELACIÓN </title>
+
+    <!-- TÍTULO DE LA PÁGINA -->
+    <title>Gran Revelación de Género | Luisa & Sebastián</title>
+
+    <!-- METADATOS DE VISTA PREVIA (WHATSAPP, TELEGRAM, REDES SOCIALES) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="✨ ¡Gran Revelación de Género! | Luisa & Sebastián ✨">
+    <meta property="og:description" content="Una linda aventura está por comenzar. Acompáñanos a descubrir si será Niño o Niña este 29 de Agosto.">
+    <meta property="og:image" content="https://i.imgur.com/D18T3xG.jpeg">
+    <meta property="og:url" content="https://jdcr1221-ai.github.io/RevLuSeb/">
+
+    <!-- FUENTES Y ICONOS -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
@@ -22,7 +34,6 @@
             padding: 30px 15px;
         }
 
-        /* TARJETA PRINCIPAL CON TRANSPARENCIA PARA VER LOS CONEJITOS DEL FONDO */
         .mobile-card {
             width: 100%;
             max-width: 420px;
@@ -94,7 +105,6 @@
         .detail-card { background: rgba(255, 255, 255, 0.88); border-radius: 14px; padding: 12px 8px; border: 1px solid #EFE6DC; text-align: center !important; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
         .detail-card.full { grid-column: span 2; background: rgba(255, 253, 249, 0.92); border: 2px dashed #D4A373; text-align: center !important; }
 
-        /* ESTILO INTERACTIVO PARA LA UBICACIÓN */
         .location-card {
             text-decoration: none;
             color: inherit;
@@ -120,7 +130,6 @@
         .gift-box.girl { border-color: #E29578; }
         .gift-box.boy { border-color: #83C5BE; }
 
-        /* VOTACIÓN DINÁMICA */
         .vote-box { background: rgba(255, 255, 255, 0.90); border-radius: 18px; padding: 18px; border: 1px solid #E6D7C3; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .bars-container { margin: 15px 0 20px 0; }
         .bar-group { margin-bottom: 12px; }
@@ -132,7 +141,6 @@
         .bar-fill.boy { background: #83C5BE; }
         .bar-fill.undecided { background: #D4A373; }
 
-        /* FORMULARIO */
         .form-group { margin-top: 12px; }
         label { font-size: 12px; font-weight: 700; color: #4A3525; display: block; margin-bottom: 4px; }
         input[type="text"], select { 
@@ -148,7 +156,6 @@
         }
         .submit-btn { width: 100%; background: #8C6D53; color: white; border: none; padding: 12px; border-radius: 20px; font-family: 'Fredoka', cursive; font-size: 15px; cursor: pointer; }
 
-        /* REVELACIÓN DE VOTOS (2 COLUMNAS) */
         .votes-history-title { font-size: 14px; font-weight: 700; color: #4A3525; margin: 20px 0 10px 0; text-align: center !important; }
         .votes-grid { 
             display: grid; 
@@ -178,7 +185,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CONFIRMACIÓN Y BOTONES DE WHATSAPP */
         .rsvp-card { background: rgba(255, 255, 255, 0.90); border-radius: 18px; padding: 18px; border: 2px dashed #8C6D53; text-align: center !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
         
         .whatsapp-buttons {
@@ -206,7 +212,6 @@
         .ws-btn.mother { background-color: #25D366; }
         .ws-btn.father { background-color: #128C7E; }
 
-        /* BOTÓN DE MÚSICA FLOTANTE */
         #music-control-button {
             position: fixed !important;
             bottom: 25px !important;
@@ -229,20 +234,17 @@
 </head>
 <body>
 
-<!-- BOTÓN DE CONTROL DE MÚSICA -->
 <button id="music-control-button" onclick="toggleMusic()">
     <i id="musicIcon" class="fa-solid fa-music"></i>
     <span id="musicText">Reproducir Música</span>
 </button>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop preload="auto">
     <source src="tarzan.mp3" type="audio/mpeg">
 </audio>
 
 <div class="mobile-card">
 
-    <!-- PORTADA -->
     <section class="section">
         <span class="badge"><i class="fa-solid fa-envelope"></i> ¡Tienes una invitación muy especial!</span>
         <h1>✨ ¡A mi revelación<br>
@@ -251,7 +253,6 @@
         <p style="margin-top: 8px;"><strong>Mis Papás: Luisa & Sebastián</strong></p>
     </section>
 
-    <!-- CARTA BEBÉ - FOTO 1 -->
     <section class="section">
         <h2><i class="fa-solid fa-baby"></i> Carta del Bebé</h2>
         <div class="img-container">
@@ -262,7 +263,6 @@
         </div>
     </section>
 
-    <!-- CARTA BEBÉ - FOTO 2 -->
     <section class="section">
         <div class="img-container">
             <img src="https://i.imgur.com/Z4vh4iR.jpeg" alt="Luisa y Sebastián">
@@ -272,7 +272,6 @@
         </div>
     </section>
 
-    <!-- DETALLES -->
     <section class="section">
         <h2><i class="fa-solid fa-calendar-days"></i> Detalles del Gran Día</h2>
         <div class="details-grid">
@@ -290,7 +289,6 @@
                     ¡Llega muy puntual!</p>
             </div>
 
-            <!-- UBICACIÓN CLICABLE A GOOGLE MAPS -->
             <a href="https://maps.google.com/?q=Calle+Oviedo+533,+El+Casar+de+Escalona" target="_blank" class="detail-card full location-card">
                 <strong>📍 Ubicación</strong>
                 <p>Calle Oviedo 533, El Casar de Escalona</p>
@@ -306,7 +304,6 @@
         </div>
     </section>
 
-    <!-- REGALOS -->
     <section class="section">
         <h2><i class="fa-solid fa-gift"></i> Guía de Regalos & Pistas</h2>
         <div class="gift-box girl">
@@ -320,12 +317,10 @@
         </div>
     </section>
 
-    <!-- VOTACIÓN INTERACTIVA -->
     <section class="section">
         <h2><i class="fa-solid fa-chart-simple"></i> ¿Qué crees que seré?</h2>
         <div class="vote-box">
             
-            <!-- BARRAS DINÁMICAS -->
             <div class="bars-container">
                 <div class="bar-group">
                     <div class="bar-label">
@@ -358,7 +353,6 @@
                 </div>
             </div>
 
-            <!-- FORMULARIO -->
             <div class="form-group">
                 <label for="userName">Tu Nombre:</label>
                 <input type="text" id="userName" placeholder="Ej: María Pérez">
@@ -374,16 +368,13 @@
                 <button class="submit-btn" onclick="submitVote()">Registrar mi Voto 🗳️</button>
             </div>
 
-            <!-- HISTORIAL EN 2 COLUMNAS -->
             <div class="votes-history-title">🗳️ Votos Registrados:</div>
             <div id="votesGrid" class="votes-grid">
-                <!-- Se apilarán los votos en vivo desde Firebase -->
             </div>
 
         </div>
     </section>
 
-    <!-- CONFIRMACIÓN -->
     <section class="section">
         <div class="rsvp-card">
             <h3 style="font-family:'Fredoka'; font-size:18px; margin-bottom:10px; color:#4A3525; text-align:center;">☑️ Un aviso de mi parte</h3>
@@ -404,12 +395,10 @@
 
 </div>
 
-<!-- LIBRERÍAS DE FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
 <script>
-    // CONFIGURACIÓN DE TU PROYECTO FIREBASE
     const firebaseConfig = {
         apiKey: "AIzaSyBmqNJTjMYVOl2gIw8QoqTo0joKEkIf2zE",
         authDomain: "revluseb.firebaseapp.com",
@@ -421,12 +410,10 @@
         measurementId: "G-W6DY6RJVC5"
     };
 
-    // Inicializar Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     const votesRef = db.ref('votos');
 
-    // LÓGICA DE MÚSICA
     function toggleMusic() {
         let music = document.getElementById('bgMusic');
         let icon = document.getElementById('musicIcon');
@@ -437,7 +424,7 @@
                 icon.className = "fa-solid fa-pause";
                 text.innerText = "Pausar";
             }).catch(e => {
-                alert("No se pudo reproducir el audio. Verifica que el archivo tarzan.mp3 esté subido a GitHub en la misma carpeta.");
+                alert("Asegúrate de haber interactuado con la página o que el archivo tarzan.mp3 esté subido correctamente.");
             });
         } else {
             music.pause();
@@ -446,7 +433,6 @@
         }
     }
 
-    // ESCUCHAR Y ACTUALIZAR VOTOS EN TIEMPO REAL
     votesRef.on('value', (snapshot) => {
         const data = snapshot.val() || {};
         
@@ -457,7 +443,6 @@
         let grid = document.getElementById('votesGrid');
         grid.innerHTML = ''; 
 
-        // Mostrar del voto más reciente al más antiguo
         const votesArray = Object.values(data).reverse();
 
         votesArray.forEach(item => {
@@ -475,7 +460,6 @@
             grid.appendChild(card);
         });
 
-        // Recalcular porcentajes
         let total = countGirl + countBoy + countUndecided;
         let pGirl = total > 0 ? Math.round((countGirl / total) * 100) : 0;
         let pBoy = total > 0 ? Math.round((countBoy / total) * 100) : 0;
@@ -489,9 +473,10 @@
 
         document.getElementById('bar-undecided').style.width = pUndecided + '%';
         document.getElementById('percent-undecided').innerText = pUndecided + '%';
+    }, (error) => {
+        console.error("Error al leer datos:", error);
     });
 
-    // REGISTRAR VOTO EN LA NUBE
     function submitVote() {
         let nameInput = document.getElementById('userName');
         let choiceInput = document.getElementById('userChoice');
@@ -508,15 +493,18 @@
             return;
         }
 
-        // Guardar voto
         votesRef.push({
             name: name,
             choice: choice,
             timestamp: Date.now()
+        }).then(() => {
+            alert('¡Tu voto ha sido registrado con éxito! 🎉');
+            nameInput.value = '';
+            choiceInput.selectedIndex = 0;
+        }).catch((err) => {
+            alert('Error al guardar el voto: Revisa las Reglas (Rules) de tu Firebase Database.');
+            console.error(err);
         });
-
-        nameInput.value = '';
-        choiceInput.selectedIndex = 0;
     }
 </script>
 
